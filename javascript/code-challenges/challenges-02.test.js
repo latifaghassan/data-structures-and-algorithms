@@ -16,6 +16,23 @@ const raisedToTheThird = (arr) => {
   });
   return newArr;
 };
+
+// const raisedToTheThird = (arr) => {
+//   const newArr = [];
+//   arr.forEach((value) => {
+//     newArr.push(Math.pow(value, 3))
+//   });
+//   return newArr;
+// };
+
+// const raisedToTheThird = (arr) => {
+//   const newArr = [];
+//   arr.forEach((value, index) => {
+//     let raisedValue = Math.pow(value, 3);
+//     newArr [index] = raisedValue;
+//   });
+//   return newArr;
+// };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -27,6 +44,11 @@ const addOne = (arr) => {
   return newArr2;
 };
 
+// const addOne = (arr) => {
+//   const newArr2 = arr.map((x) => ++x);
+//   return newArr2;
+// };
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
@@ -37,6 +59,11 @@ const addQuestion = (arr) => {
   const newArr3 = arr.map((string) => `${string}?`);
   return newArr3;
 };
+
+// const addQuestion = (arr) => {
+//   const newArr3 = arr.map((string) => string + "?");
+//   return newArr3;
+// };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -90,7 +117,8 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  // Solution code here...
+  const newArray = arr.map((val) => val.charCodeAt());
+  return newArray;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -104,9 +132,19 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+  const newArray = arr.map((val) => {
+    if (val % 2 === 0) {
+      return "even";
+    } else if (val % 2 > 0) {
+      return "odd";
+    } else {
+      return "N/A";
+    }
+  });
+  return newArray;
 };
 
+// !=
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
 
@@ -150,7 +188,8 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  const newArr = arr.map((val) => val.ability.name);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -197,7 +236,10 @@ const snorlaxStats = {
 };
 
 const extractStats = (arr) => {
-  // Solution code here...
+  const newArr = arr.map((val) => {
+    return { name: val.stat.name, total: val.baseStat + val.effort };
+  });
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -268,7 +310,7 @@ describe("Testing challenge 6", () => {
   });
 });
 
-xdescribe("Testing challenge 7", () => {
+describe("Testing challenge 7", () => {
   test("It should return an array containing the character code for each letter", () => {
     expect(charCode(["C", "o", "d", "e", "3", "0", "1"])).toStrictEqual([
       67, 111, 100, 101, 51, 48, 49,
@@ -279,7 +321,7 @@ xdescribe("Testing challenge 7", () => {
   });
 });
 
-xdescribe("Testing challenge 8", () => {
+describe("Testing challenge 8", () => {
   test("It should return an array containing the keys from an object", () => {
     expect(evenOdd([5, 8, 2, 6, 9, 13, 542, 541])).toStrictEqual([
       "odd",
@@ -327,7 +369,7 @@ xdescribe("Testing challenge 8", () => {
   });
 });
 
-xdescribe("Testing challenge 9", () => {
+describe("Testing challenge 9", () => {
   test("It should return an array containing only the ability names", () => {
     expect(extractAbilities(snorlaxAbilities.abilities)).toStrictEqual([
       "gluttony",
@@ -340,7 +382,7 @@ xdescribe("Testing challenge 9", () => {
   });
 });
 
-xdescribe("Testing challenge 10", () => {
+describe("Testing challenge 10", () => {
   test("It should return an array containing objects with name and total values", () => {
     expect(extractStats(snorlaxStats.stats)).toStrictEqual([
       { name: "speed", total: 35 },
