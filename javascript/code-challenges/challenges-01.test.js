@@ -114,6 +114,9 @@ const addNumbers = (num, arr, times, callback) => {
   }
   return newArray;
 };
+
+// we want to use the (notmal) for
+// we used 'for" loop not "forEach", becuase we want tp repeat a number a specific time
 /* ------------------------------------------------------------------------------------------------
 
 CHALLENGE 6
@@ -143,6 +146,18 @@ const createList = (availableItems) => {
   return newArray;
 };
 
+/*
+const createList = (availableItems) => {
+  const newArray = [];
+  availableItems.forEach((indexCount) => {
+    if (indexCount.available === true) {
+      newArray.push(indexCount.name);
+    }
+  });
+
+  return newArray;
+};
+*/
 /* ------------------------------------------------------------------------------------------------
 STRETCH - CHALLENGE 7
 
