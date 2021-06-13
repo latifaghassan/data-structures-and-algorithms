@@ -37,6 +37,11 @@ const addPurchases = (arr) => {
   return total;
 };
 
+// accumlator = sum + connect two things. (standard value that keep its value and never change)
+// curr = value
+// validation? process like sum or minu or anything
+// 0 = the first value (intialize the value) it like you type let sum = 0; // first value in acc
+
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 3
 
